@@ -2,6 +2,12 @@ vim.g.mapleader =  " "
 
 local keymap = vim.keymap
 
+-- unbind arrow keys :(
+keymap.set("", "<Up>", "<Nop>")
+keymap.set("", "<Down>", "<Nop>")
+keymap.set("", "<Left>", "<Nop>")
+keymap.set("", "<Right>", "<Nop>")
+
 -- general keymaps
 
 keymap.set("i", "jk", "<ESC>")
