@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-git clone git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sudo apt-get update && sudo apt-get install tmux -y
 
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
