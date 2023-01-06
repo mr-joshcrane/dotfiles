@@ -11,11 +11,6 @@ chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
 ./squashfs-root/AppRun --version
 
-# Optional: exposing nvim globally.
-sudo mv squashfs-root /
-sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
-
-
 cp tmux/tmux.conf ~/.tmux.conf
 rm -rf ~/.config/nvim; cp -R nvim ~/.config/
 cp zsh/zshrc ~/.zshrc
