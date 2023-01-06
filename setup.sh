@@ -8,6 +8,6 @@ mv ./nvim-linux64/bin/nvim /usr/local/bin/nvim
 
 mv tmux/.tmux.conf ~/.tmux.conf
 rm -rf ~/.config/nvim; mv nvim ~/.config/
-mv zsh/.zshrc ~/.zshrc
+mv zsh/zshrc ~/.zshrc
 
 
