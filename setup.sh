@@ -7,7 +7,7 @@ tar xzvf nvim-linux64.tar.gz
 cp ./nvim-linux64/bin/nvim /usr/local/bin/nvim
 
 cp tmux/tmux.conf ~/.tmux.conf
-rm -rf ~/.config/nvim; cp nvim ~/.config/
-cp zsh/.zshrc ~/.zshrc
+rm -rf ~/.config/nvim; cp -R nvim ~/.config/
+cp zsh/.zshrc ~/zshrc
 
 
