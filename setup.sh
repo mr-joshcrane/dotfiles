@@ -11,6 +11,6 @@ cp ./nvim-linux64/bin/nvim /usr/local/bin/nvim
 cp tmux/tmux.conf ~/.tmux.conf
 rm -rf ~/.config/nvim; cp -R nvim ~/.config/
 cp zsh/zshrc ~/.zshrc
-cp powerlevel10k/ ~/powerlevel10k/
+cp -R powerlevel10k/ ~/powerlevel10k/
 
 . ~/.zshrc
