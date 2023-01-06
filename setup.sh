@@ -3,7 +3,9 @@ chsh -s $(which zsh)
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-sudo apt-get update && sudo apt-get install tmux -y
+sudo apt-get update
+sudo apt-get install tmux -y
+sudo apt-get install lua5.3 -y
 
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
 tar xzvf nvim-linux64.tar.gz
