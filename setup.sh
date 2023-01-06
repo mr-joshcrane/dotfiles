@@ -12,5 +12,6 @@ cp tmux/tmux.conf ~/.tmux.conf
 rm -rf ~/.config/nvim; cp -R nvim ~/.config/
 cp zsh/zshrc ~/.zshrc
 cp -R powerlevel10k/ ~/
+cp powerlevel10k/p10k.zsh ~/.p10k.zsh
 
 . ~/.zshrc
