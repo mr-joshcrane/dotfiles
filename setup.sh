@@ -5,12 +5,16 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 sudo apt-get update
 sudo apt-get install tmux -y
-sudo apt-get install lua5.3 -y
 
-wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
-tar xzvf nvim-linux64.tar.gz
-cp ./nvim-linux64/bin/nvim /usr/local/bin/nvim
-rm -rf nvim-linux64 nvim-linux64.tar.gz
+wget https://github.com/necurl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+./nvim.appimage --appimage-extract
+./squashfs-root/AppRun --version
+
+# Optional: exposing nvim globally.
+sudo mv squashfs-root /
+sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+
 
 cp tmux/tmux.conf ~/.tmux.conf
 rm -rf ~/.config/nvim; cp -R nvim ~/.config/
