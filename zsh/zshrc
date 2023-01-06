@@ -7,10 +7,10 @@ fi
 
 # The following lines were added by compinstall
 
-ZSH_THEME="~/code/powerlevel10k/powerlevel10k"
+ZSH_THEME="~/oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k"
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle :compinstall filename '/home/josh/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
