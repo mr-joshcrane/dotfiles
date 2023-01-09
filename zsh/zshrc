@@ -12,6 +12,9 @@ ZSH_THEME="~/oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k"
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle :compinstall filename '~/.zshrc'
 
+# Add NVIM
+export PATH=$PATH:/home/codespace/nvim/nvim-linux64/bin
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall

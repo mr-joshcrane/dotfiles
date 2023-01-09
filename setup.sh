@@ -6,10 +6,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo apt-get update
 sudo apt-get install tmux -y
 
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-./nvim.appimage --appimage-extract
-./squashfs-root/AppRun --version
+mkdir -p ~/nvim
+wget https://github.com/neovim/neovim/releases/download/v0.8.2/nvim-linux64.tar.gz
+tar xzvf nvim-linux64.tar.gz --directory /usr/local/bin/ --directory ~/nvim
+
 
 cp tmux/tmux.conf ~/.tmux.conf
 rm -rf ~/.config/nvim; cp -R nvim ~/.config/
