@@ -18,3 +18,5 @@ cp -R powerlevel10k/ ~/
 cp powerlevel10k/.p10k.zsh ~/.p10k.zsh
 
 . ~/.zshrc
+
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
