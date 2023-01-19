@@ -60,14 +60,22 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
-  -- autocompletion
-  use("hrsh7th/nvim-cmp") -- completion plugin
-  use("hrsh7th/cmp-buffer") -- source for text in buffer
-  use("hrsh7th/cmp-path") -- source for file system paths
-  use("neoclide/coc.nvim")
+ 
+  -- Completion
+  use "christianchiarulli/nvim-cmp"
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-emoji"
+  use "hrsh7th/cmp-nvim-lua"
+  use "zbirenbaum/copilot-cmp"
+  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", 
+run = "./install.sh" } -- autocompletion
+
   -- snippets
   use("L3MON4D3/LuaSnip") -- snippet engine
-  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
   use("rafamadriz/friendly-snippets") -- useful snippets
 
   -- managing & installing lsp servers, linters & formatters
@@ -76,30 +84,14 @@ return packer.startup(function(use)
 
   -- configuring lsp servers
   use("neovim/nvim-lspconfig") -- easily configure language servers
-  use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
-  use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
   use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
-  -- neovim
-  use("fatih/vim-go")
-
-  -- treesitter configuration
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    run = function()
-      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-      ts_update()
-    end,
-  })
-
-  -- auto closing
-  use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
-  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+  -- treesitter
+  use("nvim-treesitter/nvim-treesitter")
 
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
