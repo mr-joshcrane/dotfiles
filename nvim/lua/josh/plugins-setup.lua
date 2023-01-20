@@ -60,7 +60,6 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
- 
   -- Completion
   use "christianchiarulli/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -71,9 +70,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
   use "zbirenbaum/copilot-cmp"
-  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", 
-run = "./install.sh" } -- autocompletion
-
+  use { 'codota/tabnine-nvim', run = "./dl_binaries.sh" }
   -- snippets
   use("L3MON4D3/LuaSnip") -- snippet engine
   use("rafamadriz/friendly-snippets") -- useful snippets
@@ -85,7 +82,13 @@ run = "./install.sh" } -- autocompletion
   -- configuring lsp servers
   use("neovim/nvim-lspconfig") -- easily configure language servers
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+        require('lspsaga').setup({})
+    end,
+})
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
   use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls

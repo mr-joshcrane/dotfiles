@@ -1,76 +1,42 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-  print("Failed to import nvim-tree")
+-- import nvim-tree plugin safely
+local setup, nvimtree = pcall(require, "nvim-tree")
+if not setup then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  print("Failed to import nvim-config")
-  return
-end
+-- recommended settings from nvim-tree documentation
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+-- change color for arrows in tree to light blue
+vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
-local utils = require "nvim-tree.utils"
-
----@diagnostic disable-next-line: unused-local
-local function notify_level(level)
-  return function(msg)
-    vim.schedule(function()
-      vim.api.nvim_echo({ { msg, "WarningMsg" } }, false, {})
-    end)
-  end
-end
-
-nvim_tree.setup {
-  hijack_directories = {
-    enable = false,
-  },
-  filters = {
-    custom = { ".git" },
-    exclude = { ".gitignore" },
-  },
-  update_cwd = true,
+-- configure nvim-tree
+nvimtree.setup({
+  -- change folder arrow icons
   renderer = {
-    add_trailing = false,
-    group_empty = false,
-    highlight_git = false,
-    highlight_opened_files = "none",
-    root_folder_modifier = ":t",
-    indent_markers = {
-      enable = false,
-      icons = {
-        corner = "└ ",
-        edge = "│ ",
-        none = "  ",
-      },
-    },
     icons = {
-      webdev_colors = true,
-      git_placement = "before",
-      padding = " ",
-      symlink_arrow = " ➛ ",
-      show = {
-        file = true,
-        folder = true,
-        folder_arrow = true,
-        git = true,
+      glyphs = {
+        folder = {
+          arrow_closed = "", -- arrow when folder is closed
+          arrow_open = "", -- arrow when folder is open
+        },
       },
     },
   },
-  diagnostics = {
-    enable = true,
+  -- disable window_picker for
+  -- explorer to work well with
+  -- window splits
+  actions = {
+    open_file = {
+      window_picker = {
+        enable = false,
+      },
+    },
   },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-    ignore_list = {},
-  },
-  git = {
-    enable = true,
-    ignore = true,
-    timeout = 500,
-  },
-}
+  -- 	git = {
+  -- 		ignore = false,
+  -- 	},
+})
+
 
