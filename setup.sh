@@ -9,4 +9,6 @@ cp ./zsh/.zshrc ~/.zshrc
 cp ./tmux/tmux.conf ~/.tmux.conf
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"w
 brew install neovim
+brew install golang
+brew install node
 exit
