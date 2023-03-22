@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 apt install zsh tmux
 sudo chsh -s $(which zsh)
 rm -rf ~/.config/nvim; cp -R nvim ~/.config/nvim/
