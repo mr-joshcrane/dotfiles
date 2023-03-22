@@ -30,6 +30,19 @@ end
 -- add list of plugins to install
 return packer.startup(function(use)
   -- packer can manage itself
+  use({"vimwiki/vimwiki", config = function()
+        vim.g.vimwiki_list = {
+            {
+                syntax = 'markdown',
+                ext = '.md',
+            }
+        }
+    end
+  })
+
+
+  use("kdheepak/lazygit.nvim")
+
   use("wbthomason/packer.nvim")
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
@@ -61,7 +74,7 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
   -- Completion
-  use "christianchiarulli/nvim-cmp"
+  use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions

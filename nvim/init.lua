@@ -8,6 +8,5 @@ require("josh.plugins.telescope")
 require("josh.plugins.lsp.mason")
 require("josh.plugins.nvim-cmp")
 require("josh.plugins.lsp.lspconfig")
-require("josh.plugins.lsp.lspsaga")
 require("josh.core.keymaps")
 
